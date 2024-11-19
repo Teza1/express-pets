@@ -71,8 +71,8 @@ exports.submitContact = async function (req, res, next) {
             from: "petadoption@localhost",
             subject: `Thank you for your interest in ${doesPetExist.name}`,
             html: `<h3 style="color: purple; font-size: 30px; font-weight: normal;">Thank you!</h3>
-      <p>We appreciate your interest in ${doesPetExist.name} and one of our staff members will reach out to your shortly! Below is a copy of the message you sent us for your personal records:</p>
-      <p><em>${ourObject.comment}</em></p>`
+    <p>We appreciate your interest in ${doesPetExist.name} and one of our staff members will reach out to your shortly! Below is a copy of the message you sent us for your personal records:</p>
+    <p><em>${ourObject.comment}</em></p>`
         })
 
         const promise2 = transport.sendMail({
@@ -80,12 +80,12 @@ exports.submitContact = async function (req, res, next) {
             from: "petadoption@localhost",
             subject: `Someone is interested in ${doesPetExist.name}`,
             html: `<h3 style="color: purple; font-size: 30px; font-weight: normal;">New Contact!</h3>
-      <p>Name: ${ourObject.name}<br>
-      Pet Interested In: ${doesPetExist.name}<br>
-      Email: ${ourObject.email}<br>
-      Message: ${ourObject.comment}
-      </p>
-      `
+    <p>Name: ${ourObject.name}<br>
+    Pet Interested In: ${doesPetExist.name}<br>
+    Email: ${ourObject.email}<br>
+    Message: ${ourObject.comment}
+    </p>
+    `
         })
 
         const promise3 = await contactsCollection.insertOne(ourObject)
